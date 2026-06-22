@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rutuja Surade — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --ink-2: #444;
+    --ink-3: #888;
+    --surface: #f7f6f2;
+    --white: #ffffff;
+    --accent: #1a4fd6;
+    --accent-light: #e8eefb;
+    --rule: #e0ddd8;
+    --green: #0d7a4e;
+    --green-light: #e6f4ef;
+    --amber: #9a5e00;
+    --amber-light: #fdf3e3;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(247,246,242,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 56px;
+  }
+  .nav-name { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--ink-2); text-decoration: none; letter-spacing: 0.02em; transition: color 0.15s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 120px 5vw 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 60px;
+    align-items: end;
+  }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--ink-2);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 22px;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #1440b0; }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+  .btn-outline:hover { border-color: var(--ink-3); background: var(--white); }
+
+  /* IMPACT CARDS */
+  .impact-panel {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .impact-stat { text-align: center; }
+  .impact-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--ink);
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .impact-label { font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em; line-height: 1.4; }
+  .impact-divider { grid-column: 1/-1; height: 1px; background: var(--rule); }
+
+  /* SECTION */
+  section { padding: 80px 5vw; border-top: 1px solid var(--rule); }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .skill-card-title { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 400;
+  }
+  .tag-blue { background: var(--accent-light); color: var(--accent); }
+  .tag-green { background: var(--green-light); color: var(--green); }
+  .tag-amber { background: var(--amber-light); color: var(--amber); }
+  .tag-gray { background: #f0eeea; color: var(--ink-2); }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 36px; }
+  .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
+  .exp-meta { padding-top: 2px; }
+  .exp-period { font-size: 12px; color: var(--ink-3); margin-bottom: 6px; }
+  .exp-company { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .exp-tools { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; }
+  .exp-role { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 14px; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .exp-bullets li {
+    font-size: 14px;
+    color: var(--ink-2);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--ink-3); }
+  .highlight { color: var(--ink); font-weight: 500; }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .proj-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .proj-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .proj-title { font-family: 'DM Serif Display', serif; font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 16px; line-height: 1.2; }
+  .proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .proj-bullets li { font-size: 13px; color: var(--ink-2); padding-left: 14px; position: relative; line-height: 1.55; }
+  .proj-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--ink-3); font-size: 16px; line-height: 1.3; }
+  .proj-stack { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--rule); padding-top: 16px; }
+
+  /* CERTS & EDU */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .cert-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .cert-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+  .cert-name { font-size: 13px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+  .cert-issuer { font-size: 12px; color: var(--ink-3); margin-top: 3px; }
+
+  /* FOOTER / CONTACT */
+  .contact-section {
+    background: var(--ink);
+    padding: 70px 5vw;
+    text-align: center;
+  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .contact-sub { font-size: 15px; color: #aaa; margin-bottom: 32px; }
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #333;
+    color: #ccc;
+    transition: all 0.15s;
+  }
+  .contact-link:hover { background: #1a1a1a; border-color: #555; color: #fff; }
+  .contact-link.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .contact-link.primary:hover { background: #1440b0; }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .impact-panel { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">Rutuja Surade</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <p class="hero-eyebrow">Data Analyst · Mumbai, India</p>
+    <h1>Turning messy data into decisions that stick.</h1>
+    <p class="hero-sub">
+      1.5 years of experience in SQL, Power BI, and Python — specialising in manufacturing and B2B sales analytics.
+      Cut reporting time by 87% at AM Lubricants. Building dashboards that sales leadership actually uses.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="#experience" class="btn btn-outline">View work</a>
+    </div>
+  </div>
+
+  <div class="impact-panel">
+    <div class="impact-stat">
+      <span class="impact-num">87%</span>
+      <span class="impact-label">Reporting time<br>reduction</span>
+    </div>
+    <div class="impact-stat">
+      <span class="impact-num">100K+</span>
+      <span class="impact-label">Rows standardised<br>across 6 regions</span>
+    </div>
+    <div class="impact-divider"></div>
+    <div class="impact-stat">
+      <span class="impact-num">8 hrs</span>
+      <span class="impact-label">Saved per week<br>via Excel templates</span>
+    </div>
+    <div class="impact-stat">
+      <span class="impact-num">94.2%</span>
+      <span class="impact-label">Model accuracy<br>on churn project</span>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <p class="skill-card-title">SQL & Databases</p>
+        <div class="skill-tags">
+          <span class="tag tag-blue">MySQL</span>
+          <span class="tag tag-blue">CTEs</span>
+          <span class="tag tag-blue">Window Functions</span>
+          <span class="tag tag-blue">Stored Procedures</span>
+          <span class="tag tag-blue">Query Optimisation</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <p class="skill-card-title">BI & Visualisation</p>
+        <div class="skill-tags">
+          <span class="tag tag-green">Power BI</span>
+          <span class="tag tag-green">DAX</span>
+          <span class="tag tag-green">Tableau</span>
+          <span class="tag tag-green">Matplotlib</span>
+          <span class="tag tag-green">Seaborn</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <p class="skill-card-title">Python & ML</p>
+        <div class="skill-tags">
+          <span class="tag tag-amber">Pandas</span>
+          <span class="tag tag-amber">Scikit-learn</span>
+          <span class="tag tag-amber">Random Forest</span>
+          <span class="tag tag-amber">Feature Engineering</span>
+          <span class="tag tag-amber">EDA</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <p class="skill-card-title">Excel & Reporting</p>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Advanced Excel</span>
+          <span class="tag tag-gray">XLOOKUP</span>
+          <span class="tag tag-gray">Pivot Tables</span>
+          <span class="tag tag-gray">Power Query</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <p class="skill-card-title">Domain</p>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Manufacturing</span>
+          <span class="tag tag-gray">B2B Sales Ops</span>
+          <span class="tag tag-gray">Revenue Reporting</span>
+          <span class="tag tag-gray">HR Attrition</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <p class="skill-card-title">Tools</p>
+        <div class="skill-tags">
+          <span class="tag tag-gray">Jupyter</span>
+          <span class="tag tag-gray">GitHub</span>
+          <span class="tag tag-gray">VS Code</span>
+          <span class="tag tag-gray">AWS</span>
+          <span class="tag tag-gray">GCP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">Mar 2025 – Present</p>
+          <p class="exp-company">AM Lubricants and Coatings</p>
+          <div class="exp-tools">
+            <span class="tag tag-blue">Excel</span>
+            <span class="tag tag-blue">SQL</span>
+            <span class="tag tag-blue">Power BI</span>
+          </div>
+        </div>
+        <div>
+          <p class="exp-role">Data Analyst</p>
+          <ul class="exp-bullets">
+            <li>Standardised <span class="highlight">100K+ rows</span> across 6 regional datasets, cutting KPI reporting from 3 days to 4 hours.</li>
+            <li>Built executive Power BI dashboards tracking revenue across 3 product lines and 5 regions — used by the Sales Head for monthly reviews.</li>
+            <li>Automated monthly consolidation using SQL stored procedures and Power Query; reduced turnaround from 6 hours to <span class="highlight">45 minutes (87% reduction)</span>.</li>
+            <li>Identified recurring finance reconciliation errors across 4 departments; built templates that eliminated mismatches and saved <span class="highlight">~8 hours/week</span>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <p class="exp-period">Jan 2024 – Jul 2024</p>
+          <p class="exp-company">Numetry Technology</p>
+          <div class="exp-tools">
+            <span class="tag tag-green">Excel</span>
+            <span class="tag tag-green">SQL</span>
+            <span class="tag tag-green">Power BI</span>
+          </div>
+        </div>
+        <div>
+          <p class="exp-role">Data Analyst Intern</p>
+          <ul class="exp-bullets">
+            <li>Cleaned 12+ datasets (50K+ records each), resolving duplicates and nulls that were skewing operational reports by up to 18%.</li>
+            <li>Built 6 recurring Excel reports using INDEX-MATCH, VLOOKUP, and pivot tables — saved the ops team <span class="highlight">5 hours/week</span>.</li>
+            <li>Ran EDA on 2 years of sales data, surfacing 3 underperforming segments and a seasonal pattern adopted into quarterly planning.</li>
+            <li>One recommendation was directly adopted: adjusted regional inventory allocation in Q2.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <p class="section-label">Projects</p>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <p class="proj-tag">Machine Learning · BI</p>
+        <p class="proj-title">Customer Churn Prediction & Revenue Impact Dashboard</p>
+        <ul class="proj-bullets">
+          <li>Analysed 80K+ customer records using Logistic Regression and Random Forest — <strong>87% prediction accuracy</strong>.</li>
+          <li>Engineered 15+ RFM-based features; improved model precision by 22% through hyperparameter tuning.</li>
+          <li>Power BI dashboard flagging high-risk segments, giving the retention team actionable churn scores to prioritise outreach.</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="tag tag-amber">Python</span>
+          <span class="tag tag-blue">SQL</span>
+          <span class="tag tag-green">Power BI</span>
+          <span class="tag tag-gray">Excel</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <p class="proj-tag">People Analytics · BI</p>
+        <p class="proj-title">HR Attrition Analysis</p>
+        <ul class="proj-bullets">
+          <li>Analysed 4K+ employee records across 5 departments — overtime employees left at <strong>3.2× the rate</strong> of others.</li>
+          <li>Interactive Power BI dashboard with slicers by department, age band, and role for targeted retention planning.</li>
+          <li>Employees in their first 18 months left at nearly double the company average — findings informed a revised onboarding strategy.</li>
+        </ul>
+        <div class="proj-stack">
+          <span class="tag tag-amber">Python</span>
+          <span class="tag tag-green">Power BI</span>
+          <span class="tag tag-blue">SQL</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS & EDUCATION -->
+<section>
+  <div class="section-inner">
+    <p class="section-label">Certifications & Education</p>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div>
+          <p class="cert-name">Google Data Analytics Certificate</p>
+          <p class="cert-issuer">Google · 2024</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <p class="cert-name">Certificate in Data Analysis</p>
+          <p class="cert-issuer">Cyber Success · 2024</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🛢️</div>
+        <div>
+          <p class="cert-name">SQL Certification</p>
+          <p class="cert-issuer">Great Learning · 2025</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div>
+          <p class="cert-name">BE Computer Engineering</p>
+          <p class="cert-issuer">Sapkal Knowledge Hub · CGPA 7.77 · 2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-heading">Let's work together.</h2>
+    <p class="contact-sub">Open to Senior Data Analyst roles in operations-heavy or B2B companies.</p>
+    <div class="contact-links">
+      <a class="contact-link primary" href="mailto:suraderutuja2002@gmail.com">✉ suraderutuja2002@gmail.com</a>
+      <a class="contact-link" href="https://linkedin.com/in/RutujaSurade" target="_blank">LinkedIn</a>
+      <a class="contact-link" href="https://github.com/Rutujasurade" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
